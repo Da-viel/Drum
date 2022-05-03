@@ -6,21 +6,30 @@
 
 body {
   background-image: url(../img/drum.jpg);
-  height: 100vh;
-  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center;
+  background-size: contain;
+  min-height: 100vmin;
+}
+
+.divkick {
+  position: fixed;
+  border-radius: 100%;
+  width: 15%;
+  height: 15%;
+  top: 52%;
+  left: 36%;
+
+  background-color: yellow;
+}
+
+.divcrash {
+  background-color: aqua;
 }
 
 button {
-  display: flex;
-  /*opacity: 0;*/
-}
-
-button.kick {
-  margin-top: 200px;
-}
-
-button.ride {
-  margin-top: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  opacity: 0;
 }

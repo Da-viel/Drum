@@ -1,34 +1,17 @@
 'use strict';
 
+//creamos el evento para saber que letra se esta pulsando
 const body = document.querySelector('body');
 
-//creamos el evento para saber que letra se esta pulsando
 body.onkeydown = function (evt) {
   evt = evt || window.event;
   alert('keydown: ' + evt.keyCode);
 };
 
-// Seleccionamos el elemento form
-const form = document.forms.drum;
+//creamos los botones
+createButtons();
 
-// Creamos los audios
-const allSounds = drumSounds();
-
-form.addEventListener('click', (e) => {
-  e.preventDefault();
-  const { target } = e;
-
-  for (let i = 0; i < allSounds.length; i++) {
-    if (i % 2 !== 0) {
-      continue;
-    } else {
-      if (target.matches(`button.${allSounds[i]}`)) {
-        allSounds[i + 1].play();
-      }
-    }
-  }
-});
-
+// Funcion para crear los objetos Audio()
 function drumSounds() {
   const sounds = [
     '../audio/crash.wav',
@@ -57,4 +40,40 @@ function drumSounds() {
   }
 
   return allSounds;
+}
+
+function createButtons() {
+  const form = document.forms.drum;
+  const allSounds = drumSounds();
+
+  const frag = document.createDocumentFragment();
+
+  for (let i = 0; i < allSounds.length; i++) {
+    if (i % 2 !== 0) {
+      continue;
+    } else {
+      const div = document.createElement('div');
+      div.innerHTML = `<div class='div${allSounds[i]}'>
+        <button class="${allSounds[i]}">${allSounds[i]}</button>
+        </div>`;
+      frag.append(div);
+    }
+  }
+
+  form.append(frag);
+
+  form.addEventListener('click', (e) => {
+    e.preventDefault();
+    const { target } = e;
+
+    for (let i = 0; i < allSounds.length; i++) {
+      if (i % 2 !== 0) {
+        continue;
+      } else {
+        if (target.matches(`button.${allSounds[i]}`)) {
+          allSounds[i + 1].play();
+        }
+      }
+    }
+  });
 }
