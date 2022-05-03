@@ -1,5 +1,13 @@
 'use strict';
 
+const body = document.querySelector('body');
+
+//creamos el evento para saber que letra se esta pulsando
+body.onkeydown = function (evt) {
+  evt = evt || window.event;
+  alert('keydown: ' + evt.keyCode);
+};
+
 // Seleccionamos el elemento form
 const form = document.forms.drum;
 
@@ -50,11 +58,3 @@ function drumSounds() {
 
   return allSounds;
 }
-
-/* if (target.matches(`button.${allSounds[0]}`)) {
-    allSounds[1].play();
-    console.log(allSounds[0]);
-} else if (target.matches('button.hihat-close')) {
-    hihatClose.play();
-    console.log('hihat-close');
-} */

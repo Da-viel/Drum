@@ -1,7 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-image: url(../img/drum.jpg);
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+button {
+  display: flex;
+  /*opacity: 0;*/
+}
+
+button.kick {
+  margin-top: 200px;
+}
+
+button.ride {
+  margin-top: 0px;
 }
