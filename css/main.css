@@ -12,24 +12,149 @@ body {
   min-height: 100vmin;
 }
 
-.divkick {
+button {
+  width: 100%;
+  height: 100%;
+  border-radius: 80%;
+  opacity: 0;
+}
+
+div {
+  display: flex;
   position: fixed;
-  border-radius: 100%;
+  border-radius: 50%;
+}
+
+.divkick {
   width: 15%;
   height: 15%;
   top: 52%;
   left: 36%;
+}
 
-  background-color: yellow;
+.divsnare {
+  width: 15%;
+  height: 11%;
+  top: 44%;
+  left: 54%;
+}
+
+.divride {
+  width: 19%;
+  height: 8%;
+  top: 24.5%;
+  left: 51%;
+  transform: rotate(-5deg);
 }
 
 .divcrash {
-  background-color: aqua;
+  width: 15%;
+  height: 6%;
+  top: 18%;
+  left: 19%;
+  transform: rotate(12deg);
 }
 
-button {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  opacity: 1;
+.divhihat-close {
+  width: 15%;
+  height: 3%;
+  top: 38%;
+  left: 6%;
+}
+
+.divhihat-open {
+  width: 17%;
+  height: 9%;
+  top: 22%;
+  left: 78%;
+  transform: rotate(-10deg);
+}
+
+.divtom-low {
+  width: 17%;
+  height: 9%;
+  top: 45.5%;
+  left: 23%;
+}
+
+.divtom-mid {
+  width: 13%;
+  height: 10%;
+  top: 36%;
+  left: 29.5%;
+}
+
+.divtom-high {
+  width: 13%;
+  height: 10%;
+  top: 36%;
+  left: 44%;
+}
+
+@media (min-width: 1400px) {
+  .divkick {
+    width: 8%;
+    height: 15%;
+    top: 52%;
+    left: 42%;
+  }
+
+  .divsnare {
+    width: 10%;
+    height: 11%;
+    top: 45%;
+    left: 52%;
+  }
+
+  .divride {
+    width: 11%;
+    height: 8%;
+    top: 25%;
+    left: 50%;
+    transform: rotate(-5deg);
+  }
+
+  .divcrash {
+    width: 8%;
+    height: 6%;
+    top: 18.5%;
+    left: 33%;
+    transform: rotate(12deg);
+  }
+
+  .divhihat-close {
+    width: 9%;
+    height: 3%;
+    top: 39%;
+    left: 25%;
+  }
+
+  .divhihat-open {
+    width: 10%;
+    height: 9%;
+    top: 22.5%;
+    left: 65.5%;
+    transform: rotate(-10deg);
+  }
+
+  .divtom-low {
+    width: 9%;
+    height: 9%;
+    top: 47%;
+    left: 35%;
+  }
+
+  .divtom-mid {
+    width: 7.5%;
+    height: 10%;
+    top: 37%;
+    left: 38.5%;
+  }
+
+  .divtom-high {
+    width: 7.5%;
+    height: 10%;
+    top: 37%;
+    left: 46.5%;
+  }
 }
