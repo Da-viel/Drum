@@ -2,12 +2,9 @@
 
 //creamos el evento para saber que letra se esta pulsando
 const body = document.querySelector('body');
-const allSounds = drumSounds();
 
 //creamos los botones
 createButtons();
-
-keyUse();
 
 // Funcion para crear los objetos Audio()
 function drumSounds() {
@@ -40,6 +37,7 @@ function drumSounds() {
   return allSounds;
 }
 
+// Funcion para la creacion auto de los botones
 function createButtons() {
   const form = document.forms.drum;
   const allSounds = drumSounds();
@@ -76,23 +74,29 @@ function createButtons() {
   });
 }
 
-function keyUse() {
-  const keyboard = [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59];
+let currentChord = null; // Referencia a lo que se esta reproduciendo
+let keyIsPressed = false; // Referencia para cuando una tecla es presionada
+
+// Llamada a la funcion makeSound cuando se aprieta un boton
+document.addEventListener('keydown', function (event) {
+  if (keyIsPressed === false) {
+    makeSound(event.key);
+    keyIsPressed = true;
+  }
+  keyIsPressed = false;
+});
+
+// Hace la llamada al sonido y crea la referencia al sonido
+function makeSound(key) {
   const allSounds = drumSounds();
+  let recorreLosSonidos = 1;
 
-  console.log(allSounds);
-  body.onkeydown = function (evt) {
-    evt = evt || window.event;
-    let aux = 1;
-    for (let i = 0; i < keyboard.length; i++) {
-      switch (evt.keyCode) {
-        case keyboard[i]:
-          allSounds[aux].play();
-
-          break;
-      }
-      aux += 2;
+  for (let i = 0; i < allSounds.length / 2; i++) {
+    switch (key) {
+      case [i].toString():
+        allSounds[recorreLosSonidos].play();
+        break;
     }
-    //alert('keydown: ' + evt.keyCode);
-  };
+    recorreLosSonidos += 2;
+  }
 }
