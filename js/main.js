@@ -2,14 +2,12 @@
 
 //creamos el evento para saber que letra se esta pulsando
 const body = document.querySelector('body');
-
-body.onkeydown = function (evt) {
-  evt = evt || window.event;
-  alert('keydown: ' + evt.keyCode);
-};
+const allSounds = drumSounds();
 
 //creamos los botones
 createButtons();
+
+keyUse();
 
 // Funcion para crear los objetos Audio()
 function drumSounds() {
@@ -76,4 +74,25 @@ function createButtons() {
       }
     }
   });
+}
+
+function keyUse() {
+  const keyboard = [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59];
+  const allSounds = drumSounds();
+
+  console.log(allSounds);
+  body.onkeydown = function (evt) {
+    evt = evt || window.event;
+    let aux = 1;
+    for (let i = 0; i < keyboard.length; i++) {
+      switch (evt.keyCode) {
+        case keyboard[i]:
+          allSounds[aux].play();
+
+          break;
+      }
+      aux += 2;
+    }
+    //alert('keydown: ' + evt.keyCode);
+  };
 }
