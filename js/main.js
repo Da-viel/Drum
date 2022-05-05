@@ -1,5 +1,7 @@
 'use strict';
 
+alert('¡Para tocar la bateria haz click o usa los botones del 0-8!');
+
 //creamos el evento para saber que letra se esta pulsando
 const body = document.querySelector('body');
 
